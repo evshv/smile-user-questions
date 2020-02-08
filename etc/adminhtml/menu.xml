@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Admin menu
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Smile_UserQuestions::question" title="User Questions" module="Smile_UserQuestions" sortOrder="10" action="smile_userquestions/question" resource="Smile_UserQuestions::question" parent="Magento_Backend::marketing_user_content"/>
+    </menu>
+</config>

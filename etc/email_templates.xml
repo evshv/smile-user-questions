@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Email templates
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="answer_email_template" label="Answer For User Questions" file="answer_email.html" type="html" module="Smile_UserQuestions" area="frontend"/>
+</config>

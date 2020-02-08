@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Dependency injection
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="save_user_question" type="Smile\UserQuestions\Plugin\SaveQuestion" sortOrder="1"/>
+    </type>
+    <virtualType name="Smile\UserQuestions\Model\ResourceModel\Question\Question\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">smile_user_questions</argument>
+            <argument name="resourceModel" xsi:type="string">Smile\UserQuestions\Model\ResourceModel\Question</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="question_listing_data_source" xsi:type="string">Smile\UserQuestions\Model\ResourceModel\Question\Question\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Smile\UserQuestions\Api\Data\QuestionInterface" type="Smile\UserQuestions\Model\Question"/>
+    <preference for="Smile\UserQuestions\Api\Data\QuestionSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Smile\UserQuestions\Api\QuestionRepositoryInterface" type="Smile\UserQuestions\Model\QuestionRepository"/>
+    <preference for="Smile\UserQuestions\Model\MailInterface" type="Smile\UserQuestions\Model\Mail"/>
+</config>
+
